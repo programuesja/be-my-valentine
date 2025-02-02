@@ -29,6 +29,7 @@ document.getElementById("yes-btn").addEventListener("click", function () {
 
 document.getElementById("no-btn").addEventListener("click", function () {
     document.body.style.background = "red";
+    document.querySelector("footer").style.background = "red";
     document.getElementById("glitch-message").classList.remove("hidden");
 
     document.getElementById("yes-btn").disabled = true;
@@ -42,6 +43,7 @@ document.getElementById("no-btn").addEventListener("click", function () {
 
     setTimeout(() => {
         document.body.style.background = "rgb(245, 185, 237)";
+        document.querySelector("footer").style.background = "rgb(245, 185, 237)";
         document.getElementById("glitch-message").classList.add("hidden");
 
         document.getElementById("yes-btn").disabled = false;
