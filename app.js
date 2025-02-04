@@ -2,7 +2,7 @@ document.getElementById("main-btn").addEventListener("click", function () {
     this.style.display = "none";
 
     let title = document.getElementById("title");
-    title.textContent = "💕Will you be my Valentine?💕";
+    title.textContent = "Will you be my Valentine?";
 
     let content = document.getElementById("content");
     content.classList.remove("hidden");
@@ -17,14 +17,14 @@ document.getElementById("yes-btn").addEventListener("click", function () {
     document.getElementById("yes-btn").disabled = true;
     document.getElementById("yes-btn").style.opacity = "0.5";
 
+    document.getElementById("no-btn").disabled = true;
+    document.getElementById("no-btn").style.opacity = "0.5";
+    
     let catImg = document.getElementById("cat-img");
     catImg.src = "resources/dancing-cat.gif";
 
     document.getElementById("confetti-message").classList.remove("hidden");
     createConfetti();
-
-    document.getElementById("no-btn").disabled = true;
-    document.getElementById("no-btn").style.opacity = "0.5";
 });
 
 document.getElementById("no-btn").addEventListener("click", function () {
@@ -53,22 +53,42 @@ document.getElementById("no-btn").addEventListener("click", function () {
     }, 3000);
 });
 
-function createConfetti() {
-    for (let i = 0; i < 30; i++) {
-        let heart = document.createElement("div");
-        heart.classList.add("heart");
-        heart.innerHTML = "💗";
-        heart.style.left = Math.random() * 100 + "vw";
-        heart.style.animationDuration = Math.random() * 2 + 1 + "s";
-        document.body.appendChild(heart);
+// function createConfetti() {
+//     for (let i = 0; i < 30; i++) {
+//         let heart = document.createElement("div");
+//         heart.classList.add("heart");
+//         heart.innerHTML = "💗";
+//         heart.style.left = Math.random() * 100 + "vw";
+//         heart.style.animationDuration = Math.random() * 2 + 1 + "s";
+//         document.body.appendChild(heart);
 
+//         setTimeout(() => {
+//             heart.remove();
+//         }, 2000);
+//     }
+// }
+
+function createFloatingHearts() {
+    for (let i = 0; i < 8; i++) {
+        let heart = document.createElement("div");
+        heart.classList.add("heart-floating");
+        heart.innerHTML = "💗";
+        heart.style.left = Math.random() * 90 + "vw";
+        heart.style.top = Math.random() * 80 + "vh";
+        heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+        document.body.appendChild(heart);
+        
         setTimeout(() => {
             heart.remove();
-        }, 2000);
+        }, 4000);
     }
 }
 
+
 document.addEventListener("DOMContentLoaded", function () {
+    createFloatingHearts();
+    setInterval(createFloatingHearts, 1000);
+
     const text = "You’ve got mail… 💌";
     let index = 0;
     const titleElement = document.getElementById("title");
