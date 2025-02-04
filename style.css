@@ -9,7 +9,7 @@ body {
     height: 100vh;
     margin-top: 120px;
     background-color: rgb(245, 185, 237);
-    overflow: hidden;
+    overflow: auto;
 }
 
 .container {
